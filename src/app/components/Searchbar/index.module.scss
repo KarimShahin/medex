@@ -1,0 +1,35 @@
+.search {
+  &Label {
+    display: flex;
+  }
+  &Input {
+    padding-block: 1rem;
+    padding-inline: 2rem;
+    width: 350px;
+    border: 0;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    font-size: 1.4rem;
+    &:focus,
+    &:focus-within,
+    &:focus-visible {
+      outline: none;
+    }
+  }
+  &Btn {
+    display: block;
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    padding-inline: 0.5rem;
+    padding-block: 0.5rem;
+    background-color: #22b0f0;
+    cursor: pointer;
+    &:hover {
+      background-color: #1d4164;
+    }
+  }
+}

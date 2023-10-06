@@ -1,0 +1,48 @@
+:root {
+  font-size: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+*:focus,
+*:focus-within,
+*:focus-visible {
+  outline: none;
+}
+
+/* laptops and large screens */
+@media screen and (max-width: 1200px) {
+  :root {
+    font-size: 9px;
+  }
+}
+/* tablets */
+@media only screen and (max-width: 992px) {
+  :root {
+    font-size: 8px;
+  }
+}
+/* mobile phones */
+@media only screen and (max-width: 768px) {
+  :root {
+    font-size: 7px;
+  }
+}

@@ -1,95 +1,83 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import styles from "./page.module.scss";
+import assets from "./assets";
+import SliderCarousel from "./components/SliderCarousel";
+import Image from "next/image";
+import NextArrow from "./components/SliderCarousel/NextArrow";
+import PrevArrow from "./components/SliderCarousel/PrevArrow";
+import Brand from "./components/Brand";
+import AdsCarousel from "./components/AdsCarousel";
+import AdsNextArrow from "./components/AdsCarousel/AdsNextArrow";
+import AdsPrevArrow from "./components/AdsCarousel/AdsPrevArrow";
+import Thumbnail from "./components/AdsCarousel/Thumbnail";
+import Link from "next/link";
 
 export default function Home() {
+  const slides = [
+    { id: 1, image: assets.images.brandOne, title: "Karim" },
+    { id: 2, image: assets.images.brandOne, title: "Karim" },
+    { id: 3, image: assets.images.brandOne, title: "Karim" },
+    { id: 4, image: assets.images.brandOne, title: "Karim" },
+    { id: 5, image: assets.images.brandOne, title: "Karim" },
+    { id: 6, image: assets.images.brandOne, title: "Karim" },
+    { id: 7, image: assets.images.brandOne, title: "Karim" },
+    { id: 8, image: assets.images.brandOne, title: "Karim" },
+    { id: 9, image: assets.images.brandOne, title: "Karim" },
+    { id: 10, image: assets.images.brandOne, title: "Karim" },
+    { id: 11, image: assets.images.brandOne, title: "Karim" },
+    { id: 12, image: assets.images.brandOne, title: "Karim" },
+    { id: 13, image: assets.images.brandOne, title: "Karim" },
+    { id: 14, image: assets.images.brandOne, title: "Karim" },
+    { id: 15, image: assets.images.brandOne, title: "Karim" },
+  ];
+
+  const ads = [
+    { id: 1, image: assets.images.ad_1 },
+    { id: 2, image: assets.images.ad_2 },
+    { id: 3, image: assets.images.ad_3 },
+    { id: 4, image: assets.images.ad_4 },
+  ];
+
+  const adsSettings = {
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    infinite: true,
+    speed: 500,
+    className: "ad-slider",
+    nextArrow: <AdsNextArrow />,
+    prevArrow: <AdsPrevArrow />,
+    dots: true,
+    fade: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
+
+  const brandSettings = {
+    slidesToShow: 8,
+    slidesToScroll: 1,
+    arrows: true,
+    infinite: false,
+    speed: 500,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    className: "slick-dark slider",
+  };
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <AdsCarousel thumbs={ads} settings={adsSettings}>
+        {ads.map((ad) => {
+          return (
+            <Link href={""} key={ad.id}>
+              <Image loading="lazy" src={ad.image} alt="" />;
+            </Link>
+          );
+        })}
+      </AdsCarousel>
+      <SliderCarousel dark={true} title={"Brands"} settings={brandSettings}>
+        {slides.map((slide) => {
+          return <Brand key={slide.id} {...slide} />;
+        })}
+      </SliderCarousel>
     </main>
-  )
+  );
 }
