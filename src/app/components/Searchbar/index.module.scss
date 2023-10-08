@@ -1,6 +1,13 @@
 .search {
   &Label {
     display: flex;
+    @media screen and (max-width: 692px) {
+      order: 1;
+      margin-inline: auto;
+    }
+    @media screen and (max-width: 500px) {
+      width: 100%;
+    }
   }
   &Input {
     padding-block: 1rem;
@@ -9,11 +16,17 @@
     border: 0;
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     &:focus,
     &:focus-within,
     &:focus-visible {
       outline: none;
+    }
+    @media screen and (max-width: 1000px) {
+      border-radius: 0;
+    }
+    @media screen and (max-width: 768px) {
+      font-size: 1.8rem;
     }
   }
   &Btn {
@@ -31,5 +44,24 @@
     &:hover {
       background-color: #1d4164;
     }
+  }
+}
+
+.megaMenuBtn {
+  all: unset;
+  display: none;
+  padding: 1rem 2rem;
+  background-color: #22b0f0;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  cursor: pointer;
+  svg {
+    width: 3rem;
+  }
+  &:hover {
+    background-color: #1d4164;
+  }
+  @media screen and (max-width: 1000px) {
+    display: block;
   }
 }

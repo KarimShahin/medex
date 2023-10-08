@@ -7,6 +7,7 @@
     img {
       width: 100%;
       border-radius: 1rem;
+      height: auto;
     }
   }
   .slick-arrow {
@@ -17,8 +18,17 @@
     width: 4rem;
     height: 4rem;
     border-radius: 100%;
-    z-index: 1000;
-    inset-block-start: 110%;
+    z-index: 2;
+    inset-block-start: 109%;
+    @media screen and (max-width: 992px) {
+      inset-block-start: 112%;
+    }
+    @media screen and (max-width: 734px) {
+      inset-block-start: 114%;
+    }
+    @media screen and (max-width: 450px) {
+      inset-block-start: 116%;
+    }
     &::before {
       content: "";
     }
@@ -40,6 +50,26 @@
       background-color: transparent;
       img {
         opacity: 1;
+      }
+    }
+    @media screen and (max-width: 510px) {
+      padding-block-start: 1.5rem;
+      li {
+        div {
+          width: 1.5rem;
+          height: 1.5rem;
+          border: 0;
+          background-color: #ccc;
+          border-radius: 100%;
+          img {
+            display: none;
+          }
+        }
+      }
+      .slick-active div {
+        border: 0 !important;
+        background-color: gold !important;
+        border-radius: 100% !important;
       }
     }
   }

@@ -1,0 +1,228 @@
+.megaMenu {
+  position: relative;
+  display: flex;
+  padding-inline: 10%;
+  box-shadow: 0 3px 6px #00000029;
+  padding-block: 5px 0;
+  justify-content: space-between;
+  &Header {
+    display: none;
+  }
+  .item {
+    position: relative;
+    font-size: 1.2rem;
+    font-weight: 700;
+    width: 100%;
+    padding: 0 8px;
+    color: #28527a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 53px;
+    padding-inline-end: 5px;
+    text-align: center;
+    flex-grow: 1;
+    .arrow {
+      display: none;
+    }
+    &::after {
+      content: "";
+      width: 1px;
+      position: absolute;
+      inset-block: 25%;
+      inset-inline-end: -1px;
+      background-color: #28527a;
+    }
+    &:hover {
+      color: #f9ba32;
+      &::before {
+        content: "";
+        width: 100%;
+        height: 2px;
+        background-color: #f9ba32;
+        position: absolute;
+        inset-block-end: 0;
+        inset-inline-start: 0;
+      }
+    }
+  }
+  .special {
+    background: #283c79;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 400;
+    text-align: center;
+    &::after {
+      display: none;
+    }
+    &_gold {
+      background-color: #f9ba32;
+    }
+    &:hover {
+      color: #fff;
+      &::before {
+        display: none;
+      }
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    padding-inline: 5%;
+  }
+  @media (max-width: 1000px) {
+    padding-inline: 3rem;
+    height: 100%;
+    width: 40%;
+    background-color: #fff;
+    flex-direction: column;
+    gap: 0;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding-inline: 0;
+    &Wrapper {
+      position: fixed;
+      inset-inline-start: -100%;
+      inset-inline-end: 100%;
+      z-index: 10;
+      transition: inset-inline 350ms ease-in-out;
+      background-color: #00000033;
+    }
+    &Header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+      padding-inline: 3rem;
+      &Title {
+        font-size: 1.8rem;
+        padding-block: 2rem;
+        color: #555;
+        font-size: 2rem;
+        font-weight: 500;
+      }
+      .closeMenuBtn {
+        all: unset;
+        font-size: 3rem;
+        font-weight: 400;
+        color: #ccc;
+        cursor: pointer;
+        &:hover {
+          color: #999;
+        }
+      }
+    }
+    .item {
+      max-width: none;
+      width: 100%;
+      justify-content: space-between;
+      flex-grow: 0;
+      height: 40px;
+      padding-inline: 3rem;
+      font-size: 1.5rem;
+      .arrow {
+        display: block;
+      }
+    }
+    .item::after {
+      display: none;
+    }
+
+    .special,
+    .special_gold,
+    .item:hover {
+      background-color: transparent;
+      color: #283c79;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .item:hover {
+      &::before {
+        display: none;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    width: 50%;
+  }
+  @media (max-width: 600px) {
+    width: 55%;
+  }
+  @media (max-width: 500px) {
+    width: 65%;
+  }
+}
+
+.megaMenuMenu {
+  position: absolute;
+  background-color: #fff;
+  inset-block-start: calc(100% + 1px);
+  inset-inline: 10%;
+  padding-block: 2rem 3rem;
+  padding-inline: 2rem;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  box-shadow: 0 10px 10px 2px #00000033;
+  z-index: 10;
+  display: flex;
+  gap: 2rem;
+  @media screen and (max-width: 1200px) {
+    inset-inline: 5%;
+  }
+  @media screen and (max-width: 1000px) {
+    inset-inline: 3rem;
+  }
+}
+
+.menu {
+  &Content {
+    width: 60%;
+    gap: 4rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    &Container {
+      display: flex;
+      flex-direction: column;
+      width: calc(33% - 1.5rem);
+      gap: 2rem;
+    }
+    &Title {
+      font-size: 1.6rem;
+      text-transform: capitalize;
+      &:hover {
+        color: #22b0f0;
+      }
+    }
+    &Links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      font-size: 1.3rem;
+      a {
+        &:hover {
+          color: #22b0f0;
+        }
+      }
+    }
+  }
+  &Images {
+    width: 40%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+  &Image {
+    border-radius: 1rem;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    &Link {
+      width: calc(50% - 2rem);
+      height: auto;
+    }
+  }
+}
+
+.slide {
+  inset-inline: 0;
+  inset-block: 0;
+}

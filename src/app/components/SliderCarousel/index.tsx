@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import styles from "./index.module.scss";
 import { SliderCarouselProps } from "./types";
 import "./carousel.scss";
+
 export default function SliderCarousel(props: SliderCarouselProps) {
   const { children, settings, title, dark } = props;
   return (

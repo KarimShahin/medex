@@ -1,0 +1,14 @@
+.wishlist {
+  position: absolute;
+  z-index: 10;
+  inset-block-start: 1rem;
+  inset-inline-end: 1rem;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 5px 1px #00000033;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
